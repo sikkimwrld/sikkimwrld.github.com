@@ -1,55 +1,120 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Sikkim Tourism Explorer</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Sikkim</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; background-color: #f1f8f4; color: #233; }
-        header { background-color: #176b50; color: white; text-align: center; padding: 25px; }
-        nav { background-color: #124d3b; text-align: center; padding: 12px; }
-        nav a { color: white; margin: 10px; text-decoration: none; }
-        main { max-width: 1000px; margin: auto; padding: 20px; }
-        .places { display: flex; flex-wrap: wrap; gap: 18px; justify-content: center; }
-        .card { background: white; width: 220px; padding: 12px; border-radius: 8px; box-shadow: 0 2px 6px #bbb; text-align: center; }
-        .card img { width: 100%; height: 145px; object-fit: cover; border-radius: 6px; }
-        .card a { color: #176b50; font-weight: bold; }
-        footer { background-color: #124d3b; color: white; text-align: center; padding: 14px; margin-top: 25px; }
+        * { box-sizing: border-box; }
+        body { margin: 0; padding: 20px; font-family: Arial, sans-serif; color: #1f2937; background: #eef5f2; }
+        .container { max-width: 1050px; margin: auto; display: grid; gap: 20px; }
+        .card { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 5px 18px #00000014; }
+        h1, h2, h3 { color: #123b32; }
+        p { line-height: 1.55; }
+        .place-row { display: grid; grid-template-columns: 1.1fr 1.2fr .7fr; gap: 16px; align-items: stretch; padding: 16px; margin-top: 14px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; }
+        .place-img { width: 100%; height: 170px; object-fit: cover; border-radius: 8px; }
+        .words-box, .rating-box { padding: 14px; border-radius: 8px; }
+        .words-box { background: white; border: 1px solid #e2e8f0; }
+        .rating-box { background: #fffbeb; border: 1px solid #fde68a; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .label { color: #0f766e; font-size: .8rem; font-weight: bold; text-transform: uppercase; }
+        .quote { font-style: italic; }
+        .author { color: #64748b; font-size: .9rem; font-weight: bold; }
+        .stars { color: #eab308; font-size: 1.25rem; letter-spacing: 2px; }
+        .score { color: #713f12; font-weight: bold; font-size: 1.1rem; }
+        .explore-link { color: #0f766e; font-weight: bold; }
+        .review-form { display: grid; gap: 12px; }
+        label { font-weight: bold; }
+        input, select, textarea { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 7px; font: inherit; }
+        button { padding: 11px 16px; border: 0; border-radius: 7px; background: #0f766e; color: white; font-weight: bold; cursor: pointer; }
+        button:hover { background: #115e59; }
+        @media (max-width: 760px) { .place-row { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Sikkim</h1>
-        <p>Discover beautiful places in the mountains of Sikkim</p>
-    </header>
-    <nav><a href="index.html">Home</a></nav>
-    <main>
-        <h2>Choose a place to explore</h2>
-        <p>Click a picture or place name to read more. The photos are examples and may not show the exact location.</p>
-        <div class="places">
-            <div class="card">
-                <a href="bhim-nala-falls.html"><img src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Waterfall among green trees"></a>
-                <h3><a href="bhim-nala-falls.html">Bhim Nala Falls</a></h3>
-                <p>A tall waterfall near Lachung in North Sikkim.</p>
-            </div>
-            <div class="card">
-                <a href="tashi-viewpoint.html"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Mountain view"></a>
-                <h3><a href="tashi-viewpoint.html">Tashi Viewpoint</a></h3>
-                <p>A popular viewpoint near Gangtok.</p>
-            </div>
-            <div class="card">
-                <a href="baba-harbhajan-singh-temple.html"><img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Temple building"></a>
-                <h3><a href="baba-harbhajan-singh-temple.html">Baba Harbhajan Singh Temple</a></h3>
-                <p>A special shrine in the high mountains of East Sikkim.</p>
-            </div>
-            <div class="card">
-                <a href="saramsa-garden.html"><img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Colorful flowers in a garden"></a>
-                <h3><a href="saramsa-garden.html">Saramsa Garden</a></h3>
-                <p>A peaceful garden near Gangtok.</p>
-            </div>
-        </div>
-        <h2>Plan your visit</h2>
-        <p>Some places in Sikkim are in restricted or high-altitude areas. Check current travel rules, weather, road conditions and permit requirements before you go. Please travel with a responsible local guide where required.</p>
+    <main class="container">
+        <section class="card">
+            <h1>Explore Sikkim</h1>
+            <p>Discover Sikkim’s waterfalls, mountain viewpoints, historic shrine, and garden. Read sample visitor comments and ratings below.</p>
+            <p><a href="#destinations">Places and reviews</a> | <a href="#add-review">Write a review</a></p>
+        </section>
+
+        <section class="card" id="destinations">
+            <h2>Places, Visitor Reviews & Star Ratings</h2>
+            <p><strong>Note:</strong> The reviews and ratings below are examples for this school project, not verified customer reviews.</p>
+
+            <article class="place-row" id="row-bhim">
+                <div>
+                    <img class="place-img" src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Waterfall surrounded by green trees">
+                    <h3>Bhim Nala Falls</h3>
+                    <p>A tall waterfall near Lachung in North Sikkim.</p>
+                    <a class="explore-link" href="bhim-nala-falls.html">Explore Bhim Nala Falls →</a>
+                </div>
+                <div class="words-box"><div class="label">Sample visitor words</div><p class="quote" id="quote-bhim">“The waterfall and mountain scenery were wonderful.”</p><div class="author" id="author-bhim">— Sample review</div></div>
+                <div class="rating-box"><div class="label">Star rating</div><div class="stars" id="stars-bhim" aria-label="4 out of 5 stars">★★★★☆</div><div class="score" id="score-bhim">4.0 / 5</div></div>
+            </article>
+
+            <article class="place-row" id="row-tashi">
+                <div>
+                    <img class="place-img" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Mountain peaks in the Himalayas">
+                    <h3>Tashi Viewpoint</h3>
+                    <p>A popular viewpoint near Gangtok with mountain views on clear days.</p>
+                    <a class="explore-link" href="tashi-viewpoint.html">Explore Tashi Viewpoint →</a>
+                </div>
+                <div class="words-box"><div class="label">Sample visitor words</div><p class="quote" id="quote-tashi">“A peaceful place to enjoy the mountain views.”</p><div class="author" id="author-tashi">— Sample review</div></div>
+                <div class="rating-box"><div class="label">Star rating</div><div class="stars" id="stars-tashi" aria-label="5 out of 5 stars">★★★★★</div><div class="score" id="score-tashi">5.0 / 5</div></div>
+            </article>
+
+            <article class="place-row" id="row-temple">
+                <div>
+                    <img class="place-img" src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Temple building">
+                    <h3>Baba Harbhajan Singh Temple</h3>
+                    <p>A memorial shrine in the high mountains of East Sikkim.</p>
+                    <a class="explore-link" href="baba-harbhajan-singh-temple.html">Explore Baba Harbhajan Singh Temple →</a>
+                </div>
+                <div class="words-box"><div class="label">Sample visitor words</div><p class="quote" id="quote-temple">“A memorable visit in a beautiful mountain setting.”</p><div class="author" id="author-temple">— Sample review</div></div>
+                <div class="rating-box"><div class="label">Star rating</div><div class="stars" id="stars-temple" aria-label="5 out of 5 stars">★★★★★</div><div class="score" id="score-temple">5.0 / 5</div></div>
+            </article>
+
+            <article class="place-row" id="row-garden">
+                <div>
+                    <img class="place-img" src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Colorful flowers in a garden">
+                    <h3>Saramsa Garden</h3>
+                    <p>A botanical garden near Gangtok with plants, flowers, and green spaces.</p>
+                    <a class="explore-link" href="saramsa-garden.html">Explore Saramsa Garden →</a>
+                </div>
+                <div class="words-box"><div class="label">Sample visitor words</div><p class="quote" id="quote-garden">“A lovely garden for a relaxing walk.”</p><div class="author" id="author-garden">— Sample review</div></div>
+                <div class="rating-box"><div class="label">Star rating</div><div class="stars" id="stars-garden" aria-label="4 out of 5 stars">★★★★☆</div><div class="score" id="score-garden">4.0 / 5</div></div>
+            </article>
+        </section>
+
+        <section class="card" id="add-review">
+            <h2>Write a Sample Review</h2>
+            <p>This demonstration updates the review on this page only. It does not save or send your information.</p>
+            <form class="review-form" id="reviewForm">
+                <div><label for="visitorName">Your name</label><input id="visitorName" type="text" required></div>
+                <div><label for="placeVisited">Place</label><select id="placeVisited"><option value="bhim">Bhim Nala Falls</option><option value="tashi">Tashi Viewpoint</option><option value="temple">Baba Harbhajan Singh Temple</option><option value="garden">Saramsa Garden</option></select></div>
+                <div><label for="starSelect">Star rating</label><select id="starSelect"><option value="5">★★★★★ (5 / 5)</option><option value="4">★★★★☆ (4 / 5)</option><option value="3">★★★☆☆ (3 / 5)</option><option value="2">★★☆☆☆ (2 / 5)</option><option value="1">★☆☆☆☆ (1 / 5)</option></select></div>
+                <div><label for="touristWords">Your review</label><textarea id="touristWords" rows="4" required></textarea></div>
+                <button type="submit">Show Review</button>
+            </form>
+        </section>
     </main>
-    <footer><p>Made for a school project about Sikkim tourism</p></footer>
+
+    <script>
+        document.getElementById("reviewForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const name = document.getElementById("visitorName").value.trim();
+            const place = document.getElementById("placeVisited").value;
+            const rating = Number(document.getElementById("starSelect").value);
+            const words = document.getElementById("touristWords").value.trim();
+            document.getElementById("quote-" + place).textContent = "“" + words + "”";
+            document.getElementById("author-" + place).textContent = "— " + name;
+            document.getElementById("stars-" + place).textContent = "★".repeat(rating) + "☆".repeat(5 - rating);
+            document.getElementById("stars-" + place).setAttribute("aria-label", rating + " out of 5 stars");
+            document.getElementById("score-" + place).textContent = rating + ".0 / 5";
+            this.reset();
+            alert("Review shown on this page. It will not be saved after you leave or refresh.");
+        });
+    </script>
 </body>
 </html>
