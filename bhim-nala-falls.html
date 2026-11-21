@@ -3,515 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore Sikkim - Homepage</title>
+    <title>About Bhim Falls</title>
     <style>
         * {
             box-sizing: border-box;
         }
-        html, body {
-            width: 100%;
-            min-height: 100%;
-            margin: 0;
-            padding: 0;
-        }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding: 20px 28px;
+            margin: 0;
+            padding: 24px;
             background: url("imr.png") center / cover fixed no-repeat #eef2f3;
             color: #1f2937;
         }
         .container {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 22px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+        @media (max-width: 860px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
         }
         .card {
-            width: 100%;
             background: rgba(255, 255, 255, 0.94);
             border-radius: 12px;
-            padding: 24px 28px;
+            padding: 24px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+            margin-bottom: 24px;
         }
         h1, h2, h3 {
             margin-top: 0;
             color: #0f172a;
         }
-        h1 {
-            font-size: 2.1rem;
-            margin-bottom: 6px;
-        }
-        h2 {
-            font-size: 1.45rem;
-            margin-bottom: 16px;
-        }
-        p {
+        p, li {
             line-height: 1.6;
-            color: #334155;
-            margin: 0 0 10px;
         }
-        .nav-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 14px;
+        ul {
+            padding-left: 20px;
         }
         .trip-link {
             display: inline-block;
+            margin-top: 8px;
             color: #0f766e;
             font-weight: 600;
             text-decoration: none;
-            background: #f0fdfa;
-            border: 1px solid #99f6e4;
-            padding: 7px 14px;
-            border-radius: 8px;
-            font-size: 0.92rem;
         }
         .trip-link:hover {
-            background: #0f766e;
-            color: #ffffff;
-        }
-
-        /* Place + Tourist Words + Star Rating Side-by-Side Row */
-        .place-row {
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1.15fr 1.25fr 0.7fr;
-            gap: 18px;
-            align-items: center;
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 10px;
-            padding: 16px;
-            margin-bottom: 18px;
-        }
-        .place-row:last-child {
-            margin-bottom: 0;
-        }
-        @media (max-width: 960px) {
-            .place-row {
-                grid-template-columns: 1fr;
-            }
-        }
-        .place-col {
-            min-width: 0;
-        }
-        .place-img {
-            width: 100%;
-            height: 190px;
-            object-fit: cover;
-            border-radius: 8px;
-            display: block;
-            margin-bottom: 12px;
-        }
-        .place-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 6px;
-        }
-        .place-top h3 {
-            margin: 0;
-            font-size: 1.15rem;
-        }
-        .price-badge {
-            background: #0f766e;
-            color: #ffffff;
-            font-weight: 700;
-            padding: 4px 11px;
-            border-radius: 6px;
-            font-size: 0.92rem;
-            white-space: nowrap;
-        }
-        .explore-link {
-            display: inline-block;
-            color: #0f766e;
-            font-weight: 600;
-            text-decoration: none;
-            font-size: 0.92rem;
-        }
-        .explore-link:hover {
             text-decoration: underline;
         }
-
-        /* Tourist Words Beside Place */
-        .words-box {
-            height: 100%;
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 14px 16px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .words-label {
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #0f766e;
-            margin-bottom: 6px;
-        }
-        .words-quote {
-            margin: 0 0 8px;
-            font-style: italic;
-            color: #1f2937;
-        }
-        .words-author {
-            font-size: 0.86rem;
-            font-weight: 600;
-            color: #64748b;
-        }
-
-        /* Star Rating Beside Tourist Words */
-        .rating-box {
-            height: 100%;
-            background: #fffbeb;
-            border: 1px solid #fde68a;
-            border-radius: 8px;
-            padding: 14px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 4px;
-        }
-        .stars {
-            color: #eab308;
-            font-size: 1.15rem;
-            letter-spacing: 2px;
-            font-weight: 700;
-        }
-        .score-num {
-            font-size: 1.2rem;
-            font-weight: 800;
-            color: #713f12;
-        }
-        .score-sub {
-            font-size: 0.8rem;
-            color: #92400e;
-        }
-
-        /* Dollar Packages Section */
-        .pkg-row {
+        .waterfall-img {
             width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 14px 18px;
-            border: 1px solid #e2e8f0;
+            height: auto;
             border-radius: 8px;
-            background: #f8fafc;
+            display: block;
             margin-bottom: 12px;
         }
-        .pkg-row:last-child {
-            margin-bottom: 0;
-        }
-        .pkg-price {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #0f766e;
-        }
-
-        /* Add Review Form */
-        .review-form-box {
-            width: 100%;
-            background: #f8fafc;
-            border: 1px solid #cbd5e1;
-            border-radius: 10px;
-            padding: 20px;
-        }
-        .form-row {
-            margin-bottom: 14px;
-        }
-        .form-row label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: #0f172a;
-        }
-        .form-row input,
-        .form-row select,
-        .form-row textarea {
-            width: 100%;
-            padding: 10px 12px;
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            font-family: inherit;
-            font-size: 0.95rem;
-            background: #ffffff;
-        }
-        .form-row textarea {
-            min-height: 85px;
-            resize: vertical;
-        }
-        .btn-submit {
-            background: #0f766e;
-            color: #ffffff;
-            border: none;
-            padding: 10px 18px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            cursor: pointer;
-        }
-        .btn-submit:hover {
-            background: #115e59;
-        }
-
-        /* Map & Video at the Bottom */
         .map-frame {
             width: 100%;
-            height: 340px;
+            height: 250px;
             border: 0;
             border-radius: 8px;
             display: block;
         }
-        .video-player {
-            width: 100%;
-            max-height: 520px;
-            border-radius: 8px;
+        .form-group {
+            margin-bottom: 14px;
+        }
+        .form-group label {
             display: block;
-            background: #000;
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 0.92rem;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="password"],
+        .form-group input[type="date"],
+        .form-group input[type="email"],
+        .form-group select {
+            width: 100%;
+            padding: 9px 11px;
+            border: 1px solid #cbd5e1;
+            border-radius: 7px;
+            font-size: 0.95rem;
+            background: #fff;
+        }
+        .radio-row {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-top: 4px;
+        }
+        .radio-row label {
+            font-weight: 400;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+        .btn-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 18px;
+        }
+        .btn {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 7px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: #0f766e;
+            color: #fff;
+            flex: 1;
+        }
+        .btn-primary:hover {
+            background: #115e59;
+        }
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #334155;
+        }
+        .btn-secondary:hover {
+            background: #cbd5e1;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
+        <!-- Left Column: Article & Booking Form -->
+        <div>
+            <div class="card">
+                <h1>Why You Should Visit Bhim Falls</h1>
+                <p><strong>Bheem Falls</strong> (also known as <strong>Bheem Nala Falls</strong> or <strong>Bhewma Falls</strong>) is a tall multi-stage waterfall in North Sikkim near <strong>Lachung</strong> on the route to Yumthang Valley, framed by green hills and dense Himalayan vegetation.</p>
+                <p>It is also popularly known as <strong>“Amitabh Bachchan Falls”</strong> because of its striking height—a nickname that surprised the actor himself when photos circulated online in 2019.</p>
 
-        <!-- 1. Homepage Intro -->
-        <div class="card">
-            <h1>Explore Sikkim</h1>
-            <p>Discover Sikkim's waterfalls, mountain passes, sunrise viewpoints, and botanical gardens—with tourist words and star ratings right beside each destination.</p>
-            <div class="nav-links">
-                <a class="trip-link" href="#destinations">Places, Words & Stars</a>
-                <a class="trip-link" href="#packages">Tour Prices ($)</a>
-                <a class="trip-link" href="#add-review">Write a Review</a>
-                <a class="trip-link" href="#map">Map</a>
-                <a class="trip-link" href="#video">Video</a>
-            </div>
-        </div>
+                <h3>Highlights & Visitor Tips</h3>
+                <ul>
+                    <li><strong>Best Viewpoint:</strong> A wooden bridge opposite the falls offers great views and mist rainbows on clear days.</li>
+                    <li><strong>Best Time to Visit:</strong> Post-monsoon brings heavier water flow, while clearer days offer smoother travel and scenery.</li>
+                    <li><strong>Safety First:</strong> Rocks are wet and slippery—stay on designated paths and keep the surroundings clean.</li>
+                </ul>
 
-        <!-- 2. Place + Tourist Words + Star Rating Side-by-Side -->
-        <div class="card" id="destinations">
-            <h2>Top Places, Tourist Words & Star Ratings</h2>
-
-            <!-- Bhim Falls -->
-            <div class="place-row" id="row-Bhim Falls">
-                <div class="place-col">
-                    <img class="place-img" src="fals.jpg" alt="Bhim Falls in North Sikkim">
-                    <div class="place-top">
-                        <h3>Bhim Falls</h3>
-                        <span class="price-badge">$45</span>
-                    </div>
-                    <p>Multi-stage waterfall near Lachung on the road to Yumthang Valley.</p>
-                    <a class="explore-link" href="webpage1.html">Open Bhim Falls Page →</a>
-                </div>
-                <div class="words-box">
-                    <div class="words-label">Tourist Words</div>
-                    <p class="words-quote" id="quote-Bhim Falls">“Loud rushing water and misty rainbows from the wooden bridge. A must-stop on the drive toward Lachung.”</p>
-                    <div class="words-author" id="author-Bhim Falls">— Meera Nair</div>
-                </div>
-                <div class="rating-box">
-                    <div class="words-label">Star Rating</div>
-                    <div class="stars" id="stars-Bhim Falls">★★★★☆</div>
-                    <div class="score-num" id="score-Bhim Falls">4.6 / 5</div>
-                    <div class="score-sub">Visitor Score</div>
-                </div>
+                <a class="trip-link" href="https://tripadvisor.in" target="_blank" rel="noopener noreferrer">Know more about these places here →</a>
             </div>
 
-            <!-- Tashi Viewpoint -->
-            <div class="place-row" id="row-Tashi Viewpoint">
-                <div class="place-col">
-                    <img class="place-img" src="point.webp" alt="Tashi Viewpoint in Gangtok">
-                    <div class="place-top">
-                        <h3>Tashi Viewpoint</h3>
-                        <span class="price-badge">$60</span>
-                    </div>
-                    <p>Scenic viewpoint near Gangtok at 6,500 ft with sunrise views of Kanchenjunga.</p>
-                    <a class="explore-link" href="webpage2.html">Open Tashi Viewpoint Page →</a>
-                </div>
-                <div class="words-box">
-                    <div class="words-label">Tourist Words</div>
-                    <p class="words-quote" id="quote-Tashi Viewpoint">“Watching the first sunlight hit Mount Kanchenjunga was magical. Peaceful morning views and warm tea right nearby.”</p>
-                    <div class="words-author" id="author-Tashi Viewpoint">— Aarav Sharma</div>
-                </div>
-                <div class="rating-box">
-                    <div class="words-label">Star Rating</div>
-                    <div class="stars" id="stars-Tashi Viewpoint">★★★★★</div>
-                    <div class="score-num" id="score-Tashi Viewpoint">5.0 / 5</div>
-                    <div class="score-sub">Visitor Score</div>
-                </div>
-            </div>
-
-            <!-- Baba H.S. Temple -->
-            <div class="place-row" id="row-Baba H.S. Temple">
-                <div class="place-col">
-                    <img class="place-img" src="temp.webp" alt="Baba Harbhajan Singh Temple">
-                    <div class="place-top">
-                        <h3>Baba H.S. Temple</h3>
-                        <span class="price-badge">$85</span>
-                    </div>
-                    <p>High-altitude shrine near Nathu La honoring Harbhajan Singh of the 23 Punjab Regiment.</p>
-                    <a class="explore-link" href="webpage3.html">Open Baba H.S. Temple Page →</a>
-                </div>
-                <div class="words-box">
-                    <div class="words-label">Tourist Words</div>
-                    <p class="words-quote" id="quote-Baba H.S. Temple">“Inspiring high-altitude shrine near Nathu La. Spotless surroundings and incredible mountain scenery.”</p>
-                    <div class="words-author" id="author-Baba H.S. Temple">— Rohan Verma</div>
-                </div>
-                <div class="rating-box">
-                    <div class="words-label">Star Rating</div>
-                    <div class="stars" id="stars-Baba H.S. Temple">★★★★★</div>
-                    <div class="score-num" id="score-Baba H.S. Temple">4.9 / 5</div>
-                    <div class="score-sub">Visitor Score</div>
-                </div>
-            </div>
-
-            <!-- Saramsa Garden -->
-            <div class="place-row" id="row-Saramsa Garden">
-                <div class="place-col">
-                    <img class="place-img" src="image4.jpg" alt="Saramsa Garden in Sikkim">
-                    <div class="place-top">
-                        <h3>Saramsa Garden</h3>
-                        <span class="price-badge">$35</span>
-                    </div>
-                    <p>Terraced botanical garden near Ranipool with Himalayan orchids and seasonal blooms.</p>
-                    <a class="explore-link" href="webpage4.html">Open Saramsa Garden Page →</a>
-                </div>
-                <div class="words-box">
-                    <div class="words-label">Tourist Words</div>
-                    <p class="words-quote" id="quote-Saramsa Garden">“Beautiful orchid greenhouses and quiet terraced lawns just outside Gangtok.”</p>
-                    <div class="words-author" id="author-Saramsa Garden">— Priya Das</div>
-                </div>
-                <div class="rating-box">
-                    <div class="words-label">Star Rating</div>
-                    <div class="stars" id="stars-Saramsa Garden">★★★★☆</div>
-                    <div class="score-num" id="score-Saramsa Garden">4.5 / 5</div>
-                    <div class="score-sub">Visitor Score</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 3. Tour Packages with Dollar ($) Prices -->
-        <div class="card" id="packages">
-            <h2>Tour Packages & Prices</h2>
-            <div class="pkg-row">
-                <div>
-                    <strong>Economy Package</strong>
-                    <div>1 Day Local Sightseeing & Garden Entry</div>
-                </div>
-                <div class="pkg-price">$45</div>
-            </div>
-            <div class="pkg-row">
-                <div>
-                    <strong>Standard Package</strong>
-                    <div>2 Days Gangtok & Tashi Viewpoint Tour</div>
-                </div>
-                <div class="pkg-price">$75</div>
-            </div>
-            <div class="pkg-row">
-                <div>
-                    <strong>Deluxe Package</strong>
-                    <div>3 Days East Sikkim, Baba Mandir & Nathu La</div>
-                </div>
-                <div class="pkg-price">$120</div>
-            </div>
-            <div class="pkg-row">
-                <div>
-                    <strong>Royal Package</strong>
-                    <div>5 Days North & East Sikkim, Bhim Falls & Private Cab</div>
-                </div>
-                <div class="pkg-price">$195</div>
-            </div>
-        </div>
-
-        <!-- 4. Leave a Review Form (Updates That Place Beside It) -->
-        <div class="card" id="add-review">
-            <h2>Add Tourist Words & Star Rating</h2>
-            <div class="review-form-box">
-                <form id="reviewForm">
-                    <div class="form-row">
-                        <label for="visitorName">Your Name</label>
-                        <input id="visitorName" type="text" required placeholder="Enter your name">
-                    </div>
-
-                    <div class="form-row">
-                        <label for="placeVisited">Place</label>
-                        <select id="placeVisited">
-                            <option value="Bhim Falls">Bhim Falls</option>
-                            <option value="Tashi Viewpoint">Tashi Viewpoint</option>
-                            <option value="Baba H.S. Temple">Baba H.S. Temple</option>
-                            <option value="Saramsa Garden">Saramsa Garden</option>
+            <div class="card">
+                <h2>Book Your Trip</h2>
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label for="pkg">Package</label>
+                        <select id="pkg" name="package">
+                            <option value="Deluxe">Deluxe</option>
+                            <option value="Royal" selected>Royal</option>
+                            <option value="Economy">Economy</option>
+                            <option value="Standard">Standard</option>
                         </select>
                     </div>
 
-                    <div class="form-row">
-                        <label for="starSelect">Star Rating</label>
-                        <select id="starSelect">
-                            <option value="5">★★★★★ (5 / 5)</option>
-                            <option value="4">★★★★☆ (4 / 5)</option>
-                            <option value="3">★★★☆☆ (3 / 5)</option>
-                            <option value="2">★★☆☆☆ (2 / 5)</option>
-                            <option value="1">★☆☆☆☆ (1 / 5)</option>
-                        </select>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input id="name" type="text" name="name" required>
                     </div>
 
-                    <div class="form-row">
-                        <label for="touristWords">Tourist Words</label>
-                        <textarea id="touristWords" required placeholder="Write what you thought of the place..."></textarea>
+                    <div class="form-group">
+                        <label for="pin">Card PIN</label>
+                        <input id="pin" type="password" name="pin" required>
                     </div>
 
-                    <button type="submit" class="btn-submit">Update Place Review</button>
+                    <div class="form-group">
+                        <label for="dob">Date of Birth</label>
+                        <input id="dob" type="date" name="dob" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input id="email" type="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <div class="radio-row">
+                            <label><input type="radio" name="gender" value="male" checked> Male</label>
+                            <label><input type="radio" name="gender" value="female"> Female</label>
+                        </div>
+                    </div>
+
+                    <div class="btn-row">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                    </div>
                 </form>
             </div>
         </div>
 
-        <!-- 5. Location Map -->
-        <div class="card" id="map">
-            <h2>Location of Sikkim</h2>
-            <iframe
-                class="map-frame"
-                src="https://maps.google.com/maps?q=Gangtok,%20Sikkim&t=&z=10&ie=UTF8&iwloc=&output=embed"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-        </div>
+        <!-- Right Column: Photo & Map -->
+        <div>
+            <div class="card">
+                <h3>Bhim Falls</h3>
+                <img class="waterfall-img" src="fals.jpg" alt="Bhim Falls in North Sikkim">
+                <a class="trip-link" href="https://tripadvisor.in" target="_blank" rel="noopener noreferrer">Explore Sikkim on TripAdvisor</a>
+            </div>
 
-        <!-- 6. Video at the Bottom -->
-        <div class="card" id="video">
-            <h2>Sikkim Travel Video</h2>
-            <video class="video-player" controls poster="imr.png">
-                <source src="tour.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <div class="card">
+                <h3>Location of Bhim Falls</h3>
+                <iframe
+                    class="map-frame"
+                    src="https://maps.google.com/maps?q=Bheem%20Nala%20Falls,%20Sikkim&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
         </div>
-
     </div>
 
     <script>
-        document.getElementById("reviewForm").addEventListener("submit", function (e) {
+        document.getElementById("bookingForm").addEventListener("submit", function (e) {
             e.preventDefault();
-
-            const name = document.getElementById("visitorName").value.trim();
-            const place = document.getElementById("placeVisited").value;
-            const starsCount = parseInt(document.getElementById("starSelect").value, 10);
-            const words = document.getElementById("touristWords").value.trim();
-
-            document.getElementById("quote-" + place).textContent = `“${words}”`;
-            document.getElementById("author-" + place).textContent = `— ${name}`;
-            document.getElementById("stars-" + place).textContent = "★".repeat(starsCount) + "☆".repeat(5 - starsCount);
-            document.getElementById("score-" + place).textContent = `${starsCount}.0 / 5`;
-
-            alert(`Review updated for ${place}!`);
+            alert("Message Sent Successfully!");
             this.reset();
         });
     </script>
-
 </body>
 </html>
